@@ -1,0 +1,7 @@
+# Keep hand-authored SVG diffs clean and platform-independent.
+*.svg text eol=lf
+*.md  text eol=lf
+*.yml text eol=lf
+
+# Rendered exports are binary.
+*.png binary
