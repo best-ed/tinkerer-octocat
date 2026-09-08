@@ -19,10 +19,9 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # Fill this in with your GitHub account email so the export commits are
-  # attributed to you. The noreply address from Settings > Emails works here
-  # if you would rather not publish a personal address.
-  EDWIN_EMAIL: EDWIN_EMAIL
+  # GitHub noreply address, so export commits are attributed to Edwin Lungatso
+  # without publishing a personal address.
+  EDWIN_EMAIL: 86914491+best-ed@users.noreply.github.com
   RENDER_WIDTH: '2560'
   RESVG_VERSION: '0.45.0'
 

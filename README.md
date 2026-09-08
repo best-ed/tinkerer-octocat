@@ -95,10 +95,8 @@ rendered at **2560px wide**, aspect preserved.
 commit is attributed solely to the repository owner. It pushes with the
 built-in `GITHUB_TOKEN` under `permissions: contents: write`.
 
-> **One thing to fill in before the first run:** the `EDWIN_EMAIL` value in the
-> workflow's `env:` block is a placeholder. Replace it with your GitHub account
-> email — the `@users.noreply.github.com` address from *Settings → Emails* works
-> if you would rather not publish a personal one.
+The commit email is the `@users.noreply.github.com` address, set in the
+workflow's `env:` block, matching the rest of the history.
 
 **Loop guard, two layers.** The path filter only matches `*.svg`, and the export
 commit only touches `exports/*.png`, so it does not match the trigger. The
