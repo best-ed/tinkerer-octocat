@@ -1,0 +1,434 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="title desc">
+  <title id="title">Tinkerer Octocat — Armored GitHub Knight (action pose)</title>
+  <desc id="desc">An action-pose flat-vector armored knight Octocat in royal blue plate with cyan circuit accents, a purple cape, a cat-eared helm crowned by the GitHub mark, a wrench-spear staff with a glowing crystal tip, and a heater shield bearing a green CI checkmark, caught mid-swing with the wrench-spear raised overhead and the cape flaring behind.</desc>
+
+  <!--
+    PALETTE
+      void        #070B1E   backdrop base
+      indigo      #141C4A   backdrop bloom
+      blue        #2F6BFF   primary plate
+      blue deep   #1B3F9E   panel / shadow plate
+      blue dark   #16307A   recess
+      navy        #0B1436   gloves, boots, emblem plate
+      outline     #060A1A   deep near-black linework
+      cyan        #35E6FF   circuit lines, edge glow
+      cyan pale   #A8F5FF   highlights
+      purple      #6B2FD6   cape outer
+      purple deep #3B1A86   cape outer shadow
+      magenta     #FF3BD0   cape lining
+      yellow      #FFD84A   micro-details
+      green       #2BD96A   shield checkmark only
+      skin        #F5CBA0   mascot face
+      hair        #8A5A2B   fringe
+  -->
+
+  <defs>
+    <radialGradient id="skyGrad" cx="50%" cy="44%" r="70%">
+      <stop offset="0%" stop-color="#1E2A66"/>
+      <stop offset="55%" stop-color="#101740"/>
+      <stop offset="100%" stop-color="#070B1E"/>
+    </radialGradient>
+
+    <linearGradient id="plateGrad" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0%" stop-color="#4A87FF"/>
+      <stop offset="55%" stop-color="#2F6BFF"/>
+      <stop offset="100%" stop-color="#1B3F9E"/>
+    </linearGradient>
+
+    <linearGradient id="domeGrad" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0%" stop-color="#5A93FF"/>
+      <stop offset="50%" stop-color="#2F6BFF"/>
+      <stop offset="100%" stop-color="#16307A"/>
+    </linearGradient>
+
+    <linearGradient id="faceGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#FFE2C4"/>
+      <stop offset="70%" stop-color="#F5CBA0"/>
+      <stop offset="100%" stop-color="#E0AE83"/>
+    </linearGradient>
+
+    <linearGradient id="capeLining" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0%" stop-color="#FF3BD0"/>
+      <stop offset="100%" stop-color="#6B2FD6"/>
+    </linearGradient>
+
+    <linearGradient id="shieldGrad" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0%" stop-color="#4A87FF"/>
+      <stop offset="55%" stop-color="#2F6BFF"/>
+      <stop offset="100%" stop-color="#16307A"/>
+    </linearGradient>
+
+    <linearGradient id="shaftGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2A3358"/>
+      <stop offset="35%" stop-color="#0B1436"/>
+      <stop offset="100%" stop-color="#060A1A"/>
+    </linearGradient>
+
+    <linearGradient id="steelGrad" x1="0" y1="0" x2="1" y2="0.3">
+      <stop offset="0%" stop-color="#DCE6FF"/>
+      <stop offset="45%" stop-color="#8E9DC8"/>
+      <stop offset="100%" stop-color="#3B456E"/>
+    </linearGradient>
+
+    <linearGradient id="crystalGrad" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#EAFEFF"/>
+      <stop offset="45%" stop-color="#7BF0FF"/>
+      <stop offset="100%" stop-color="#1FB6E8"/>
+    </linearGradient>
+
+    <radialGradient id="tipGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#35E6FF" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#35E6FF" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#35E6FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- ============================ BACKDROP ============================ -->
+  <g id="backdrop">
+    <rect x="0" y="0" width="1000" height="1000" fill="url(#skyGrad)"/>
+    <circle cx="500" cy="470" r="340" fill="#2A3A8F" opacity="0.32"/>
+    <circle cx="500" cy="470" r="340" fill="none" stroke="#35E6FF" stroke-width="4" opacity="0.45"/>
+    <circle cx="500" cy="470" r="376" fill="none" stroke="#6B2FD6" stroke-width="3" opacity="0.5" stroke-dasharray="30 20"/>
+  </g>
+
+  <!-- ============================ CHARACTER ============================ -->
+  <g id="character" stroke="#060A1A" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+
+    <!-- ==== CAPE ==== -->
+    <g id="cape">
+      <path id="cape-outer" d="M448,458
+        C378,456 314,478 268,532
+        C214,596 168,690 146,790
+        C196,830 286,842 356,812
+        C346,712 364,568 430,504 Z"
+        fill="#6B2FD6"/>
+      <path id="cape-fold" d="M268,532
+        C214,596 168,690 146,790
+        C186,818 236,830 284,830
+        C260,730 258,624 300,548 Z"
+        fill="#3B1A86" stroke-width="5"/>
+      <path id="cape-lining" d="M430,504
+        C364,568 346,712 356,812
+        C382,796 404,754 410,702
+        C418,632 428,556 460,510 Z"
+        fill="url(#capeLining)" stroke-width="6"/>
+    </g>
+
+    <!-- ==== LEGS ==== -->
+    <g id="legs">
+      <path id="thigh-left" d="M438,676 C424,676 418,688 418,704 L418,808 C418,826 436,836 456,836 C476,836 492,826 492,808 L492,704 C492,688 484,676 470,676 Z" fill="#16307A"/>
+      <path id="thigh-right" d="M562,676 C576,676 582,688 582,704 L582,808 C582,826 564,836 544,836 C524,836 508,826 508,808 L508,704 C508,688 516,676 530,676 Z" fill="#16307A"/>
+      <path d="M422,752 L488,752 M512,752 L578,752" stroke="#35E6FF" stroke-width="5" fill="none"/>
+
+      <path id="boot-left" d="M418,796 L492,796 L492,846
+        C492,862 480,872 460,876 L404,886
+        C388,889 380,880 382,868 L396,812 C399,802 407,796 418,796 Z" fill="#0B1436"/>
+      <path id="boot-right" d="M582,796 L508,796 L508,846
+        C508,862 520,872 540,876 L596,886
+        C612,889 620,880 618,868 L604,812 C601,802 593,796 582,796 Z" fill="#0B1436"/>
+      <path d="M390,858 L468,870 M610,858 L532,870" stroke="#35E6FF" stroke-width="5" fill="none"/>
+      <path d="M418,812 L490,812 M582,812 L510,812" stroke="#2F6BFF" stroke-width="6" fill="none"/>
+    </g>
+
+    <!-- ==== TORSO ==== -->
+    <g id="torso-armor">
+      <path id="chest-plate" d="M396,490
+        C396,466 418,450 444,448
+        L556,448 C582,450 604,466 604,490
+        L604,596 C604,626 586,642 558,644
+        L442,644 C414,642 396,626 396,596 Z"
+        fill="url(#plateGrad)"/>
+      <path id="chest-panel" d="M446,470
+        C446,462 452,458 460,458 L540,458 C548,458 554,462 554,470
+        L554,512 C554,522 546,528 536,528 L464,528 C454,528 446,522 446,512 Z"
+        fill="#1B3F9E" stroke-width="5"/>
+      <path id="ab-panel" d="M440,556 L560,556 C566,556 570,562 568,568
+        L556,616 C554,624 548,628 540,628 L460,628 C452,628 446,624 444,616
+        L432,568 C430,562 434,556 440,556 Z"
+        fill="#1B3F9E" stroke-width="5"/>
+
+      <g id="torso-circuits" stroke="#35E6FF" stroke-width="4" fill="none">
+        <path d="M418,506 L418,560 L436,578"/>
+        <path d="M582,506 L582,560 L564,578"/>
+        <path d="M462,590 L462,614 M538,590 L538,614"/>
+      </g>
+      <g stroke="none" fill="#35E6FF">
+        <circle cx="418" cy="500" r="5"/>
+        <circle cx="582" cy="500" r="5"/>
+      </g>
+
+      <g id="chest-medallion">
+        <circle cx="500" cy="546" r="34" fill="#0B1436" stroke-width="6"/>
+        <circle cx="500" cy="546" r="23" fill="none" stroke="#35E6FF" stroke-width="4"/>
+        <polygon points="500,530 514,538 514,554 500,562 486,554 486,538" fill="#FFD84A" stroke-width="4"/>
+      </g>
+
+      <path id="belt" d="M410,644 L590,644 C596,644 600,650 600,656 L600,678
+        C600,686 594,690 586,690 L414,690 C406,690 400,686 400,678 L400,656
+        C400,650 404,644 410,644 Z" fill="#0B1436"/>
+      <rect x="474" y="646" width="52" height="42" rx="8" fill="#FFD84A" stroke-width="6"/>
+      <path d="M414,668 L468,668 M532,668 L586,668" stroke="#35E6FF" stroke-width="4" fill="none"/>
+
+      <path id="faulds" d="M412,690 L588,690 L580,730
+        C578,740 570,746 560,746 L440,746 C430,746 422,740 420,730 Z"
+        fill="#1B3F9E"/>
+      <path d="M470,694 L470,742 M530,694 L530,742" stroke="#16307A" stroke-width="5" fill="none"/>
+    </g>
+
+    <!-- ==== SHIELD ARM (character left) ==== -->
+    <g id="left-arm">
+      <path id="pauldron-right" d="M600,462
+        C632,458 664,474 672,506
+        C678,530 672,556 656,570
+        C636,556 614,548 596,548 Z"
+        fill="url(#plateGradSteep)"/>
+      <path d="M614,486 C634,482 652,492 660,510" stroke="#35E6FF" stroke-width="5" fill="none"/>
+      <path id="arm-right" d="M588,476
+        C628,486 658,514 672,554
+        C682,576 666,596 644,590
+        C626,584 622,562 614,544
+        C604,518 582,502 558,506 Z"
+        fill="#2F6BFF"/>
+      <path id="vambrace-right" d="M664,532
+        C650,524 634,530 628,544
+        C622,558 630,574 644,578
+        C658,582 672,574 676,560
+        C679,548 674,538 664,532 Z"
+        fill="#1B3F9E" stroke-width="6"/>
+      <path d="M666,546 C656,540 644,542 638,552" stroke="#35E6FF" stroke-width="5" fill="none"/>
+      <path id="glove-right" d="M626,586
+        C652,582 676,598 678,622
+        C680,646 660,662 636,660
+        C614,658 602,640 604,618
+        C606,598 614,588 626,586 Z"
+        fill="#0B1436"/>
+    </g>
+
+    <!-- ==== SHIELD ==== -->
+    <g id="shield" transform="translate(6,-14) rotate(-7 718 566)">
+      <path id="shield-body" d="M646,456 L790,456
+        C800,456 806,463 806,472
+        L806,580 C806,650 764,694 718,712
+        C672,694 630,650 630,580
+        L630,472 C630,463 636,456 646,456 Z"
+        fill="url(#shieldGrad)"/>
+      <path id="shield-bevel" d="M654,472 L782,472
+        C788,472 792,476 792,482
+        L792,578 C792,638 756,676 718,692
+        C680,676 644,638 644,578
+        L644,482 C644,476 648,472 654,472 Z"
+        fill="none" stroke="#35E6FF" stroke-width="5" opacity="0.9"/>
+      <path id="shield-sheen" d="M666,472 L706,472 L676,676 C660,656 652,626 652,592 Z"
+            fill="#FFFFFF" opacity="0.14" stroke="none"/>
+      <path id="shield-check-outline" d="M676,578 L706,610 L764,530"
+            stroke="#060A1A" stroke-width="40" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="shield-check" d="M676,578 L706,610 L764,530"
+            stroke="#2BD96A" stroke-width="24" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- ==== NECK ==== -->
+    <g id="neck">
+      <path id="gorget" d="M452,420 L548,420 L548,462 C548,472 528,478 500,478 C472,478 452,472 452,462 Z" fill="#16307A"/>
+      <path id="cape-collar" d="M394,466
+        C420,438 466,426 500,426 C534,426 580,438 606,466
+        C580,492 542,502 500,502 C458,502 420,492 394,466 Z"
+        fill="#6B2FD6"/>
+      <path d="M420,466 C450,484 550,484 580,466" stroke="#FF3BD0" stroke-width="5" fill="none" opacity="0.8"/>
+    </g>
+
+    <!-- ==== HELM ==== -->
+    <g id="helm">
+      <g id="helm-ears">
+        <path id="ear-left" d="M382,240 C352,186 336,128 344,84 C392,110 438,164 466,220 Z" fill="url(#plateGrad)"/>
+        <path d="M392,216 C370,176 358,138 362,112 C394,138 424,176 444,212 Z" fill="#16307A" stroke-width="5"/>
+        <path d="M380,192 C368,164 362,140 364,124" stroke="#35E6FF" stroke-width="5" fill="none"/>
+
+        <path id="ear-right" d="M618,240 C648,186 664,128 656,84 C608,110 562,164 534,220 Z" fill="url(#plateGrad)"/>
+        <path d="M608,216 C630,176 642,138 638,112 C606,138 576,176 556,212 Z" fill="#16307A" stroke-width="5"/>
+        <path d="M620,192 C632,164 638,140 636,124" stroke="#35E6FF" stroke-width="5" fill="none"/>
+      </g>
+
+      <!-- helm shell -->
+      <path id="helm-shell" d="M500,140
+        C620,140 672,214 672,300
+        L672,352 C672,386 648,404 612,404
+        L388,404 C352,404 328,386 328,352
+        L328,300 C328,214 380,140 500,140 Z"
+        fill="url(#domeGrad)"/>
+
+      <!-- dome vent fins -->
+      <g id="helm-fins" stroke="#35E6FF" stroke-width="6" fill="none">
+        <path d="M370,272 L379,238"/>
+        <path d="M392,260 L399,226"/>
+        <path d="M414,252 L420,218"/>
+        <path d="M630,272 L621,238"/>
+        <path d="M608,260 L601,226"/>
+        <path d="M586,252 L580,218"/>
+      </g>
+    </g>
+
+    <!-- ==== FACE ==== -->
+    <g id="face">
+      <path id="face-recess" d="M500,268
+        C578,268 614,300 614,354
+        C614,410 572,442 500,442
+        C428,442 386,410 386,354
+        C386,300 422,268 500,268 Z"
+        fill="#0B1436" stroke-width="6"/>
+
+      <path id="face-shape" d="M500,276
+        C572,276 608,306 608,356
+        C608,408 568,436 500,436
+        C432,436 392,408 392,356
+        C392,306 428,276 500,276 Z"
+        fill="url(#faceGrad)" stroke-width="6"/>
+
+      <path id="hair-fringe" d="M398,330
+        C402,292 444,276 500,276
+        C556,276 598,292 602,330
+        C576,310 548,318 528,332
+        C512,310 486,310 470,330
+        C450,314 420,314 398,330 Z"
+        fill="#8A5A2B" stroke-width="5"/>
+
+      <g id="brows" stroke="#5E3A18" stroke-width="7" fill="none">
+        <path d="M432,342 C444,332 462,332 474,340"/>
+        <path d="M526,340 C538,332 556,332 568,342"/>
+      </g>
+
+      <g id="eyes">
+        <ellipse cx="455" cy="372" rx="27" ry="31" fill="#FFFFFF" stroke-width="5"/>
+        <ellipse cx="545" cy="372" rx="27" ry="31" fill="#FFFFFF" stroke-width="5"/>
+        <circle cx="458" cy="374" r="18" fill="#4A2A12" stroke="none"/>
+        <circle cx="548" cy="374" r="18" fill="#4A2A12" stroke="none"/>
+        <circle cx="458" cy="374" r="9" fill="#060A1A" stroke="none"/>
+        <circle cx="548" cy="374" r="9" fill="#060A1A" stroke="none"/>
+        <circle cx="450" cy="363" r="7.5" fill="#FFFFFF" stroke="none"/>
+        <circle cx="540" cy="363" r="7.5" fill="#FFFFFF" stroke="none"/>
+        <circle cx="466" cy="383" r="4" fill="#FFFFFF" stroke="none"/>
+        <circle cx="556" cy="383" r="4" fill="#FFFFFF" stroke="none"/>
+      </g>
+
+      <g id="cheeks" stroke="none">
+        <ellipse cx="416" cy="399" rx="19" ry="11" fill="#FF8FA8" opacity="0.55"/>
+        <ellipse cx="584" cy="399" rx="19" ry="11" fill="#FF8FA8" opacity="0.55"/>
+      </g>
+
+      <path id="nose" d="M495,396 C500,403 505,403 510,398" stroke="#C08A5A" stroke-width="5" fill="none"/>
+      <path id="mouth" d="M476,414 C492,430 522,428 540,402" stroke="#060A1A" stroke-width="6" fill="none"/>
+    </g>
+
+    <!-- ==== GITHUB EMBLEM ==== -->
+    <g id="github-emblem">
+      <circle id="emblem-plate" cx="500" cy="214" r="56" fill="#FFFFFF" stroke-width="7"/>
+      <circle id="emblem-ring" cx="500" cy="214" r="48" fill="none" stroke="#35E6FF" stroke-width="4"/>
+      <g id="github-mark" transform="translate(462,176) scale(3.1667)" stroke="none">
+        <path fill="#1B3F9E" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .319.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+      </g>
+    </g>
+
+    <!-- ==== HELM FURNITURE ==== -->
+    <g id="helm-trim">
+      <!-- visor rim arcs over the top of the face -->
+      <path id="brow-rim" d="M330,318
+        C342,286 392,262 500,262
+        C608,262 658,286 670,318
+        C644,302 598,292 500,292
+        C402,292 356,302 330,318 Z"
+        fill="#1B3F9E" stroke-width="6"/>
+      <path d="M392,282 L608,282" stroke="#35E6FF" stroke-width="4" fill="none" opacity="0.85"/>
+
+      <!-- side ear-pieces -->
+      <circle id="earpiece-left" cx="344" cy="356" r="32" fill="#0B1436" stroke-width="7"/>
+      <circle cx="344" cy="356" r="15" fill="#35E6FF" stroke="none"/>
+      <circle id="earpiece-right" cx="656" cy="356" r="32" fill="#0B1436" stroke-width="7"/>
+      <circle cx="656" cy="356" r="15" fill="#35E6FF" stroke="none"/>
+    </g>
+
+    <!-- ==== STAFF ARM (character right) ==== -->
+    <g id="right-arm">
+      <path id="pauldron-left" d="M400,462
+        C368,458 336,474 328,506
+        C322,530 328,556 344,570
+        C364,556 386,548 404,548 Z"
+        fill="url(#plateGradSteep)"/>
+      <path d="M386,486 C366,482 348,492 340,510" stroke="#35E6FF" stroke-width="5" fill="none"/>
+      <path id="arm-left" d="M430,462
+        C396,458 356,440 330,418
+        C314,406 294,426 308,442
+        C326,460 352,482 380,496
+        C396,504 414,500 416,506 Z"
+        fill="#2F6BFF"/>
+      <path id="vambrace-left" d="M334,430
+        C348,424 366,432 370,446
+        C374,462 362,478 348,480
+        C334,482 322,472 320,458
+        C318,446 324,436 334,430 Z"
+        fill="#1B3F9E" stroke-width="6"/>
+      <path d="M330,444 C340,438 352,442 356,452" stroke="#35E6FF" stroke-width="5" fill="none"/>
+    </g>
+
+    <!-- ==== STAFF ==== -->
+    <g id="staff" transform="translate(330,500) rotate(-32)">
+      <circle id="staff-glow" cx="0" cy="-356" r="118" fill="url(#tipGlow)" stroke="none"/>
+
+      <rect id="staff-shaft" x="-14" y="-206" width="28" height="592" rx="14" fill="url(#shaftGrad)"/>
+      <path d="M-6,-200 L-6,376" stroke="#35E6FF" stroke-width="4" fill="none" opacity="0.55"/>
+
+      <g id="staff-ring">
+        <path d="M-14,-120 L-40,-120" stroke="#0B1436" stroke-width="10" fill="none"/>
+        <circle cx="-56" cy="-120" r="20" fill="none" stroke="#35E6FF" stroke-width="8"/>
+      </g>
+
+      <g id="staff-butt">
+        <rect x="-20" y="330" width="40" height="52" rx="14" fill="#0B1436"/>
+        <path d="M-16,352 L16,352" stroke="#35E6FF" stroke-width="5" fill="none"/>
+      </g>
+
+      <g id="wrench-head">
+        <path id="jaw-socket" d="M-28,-336 L28,-336 L28,-286
+          C28,-276 22,-270 14,-270 L-14,-270
+          C-22,-270 -28,-276 -28,-286 Z"
+          fill="#0B1436" stroke-width="6"/>
+        <path id="jaw" d="M-46,-202
+          L-52,-292 C-52,-322 -49,-336 -38,-340
+          C-31,-343 -28,-336 -28,-324
+          L-28,-286 C-28,-276 -22,-270 -14,-270
+          L14,-270 C22,-270 28,-276 28,-286
+          L28,-324 C28,-336 31,-343 38,-340
+          C49,-336 52,-322 52,-292
+          L46,-202 C46,-190 36,-184 24,-184
+          L-24,-184 C-36,-184 -46,-190 -46,-202 Z"
+          fill="url(#steelGrad)"/>
+        <path d="M-40,-320 L-40,-216 M40,-320 L40,-216" stroke="#A8F5FF" stroke-width="5" fill="none" opacity="0.5"/>
+        <circle cx="0" cy="-212" r="10" fill="#FFD84A" stroke-width="4"/>
+      </g>
+
+      <g id="staff-tip">
+        <path id="crystal" d="M0,-436 L30,-352 L20,-270 L-20,-270 L-30,-352 Z"
+              fill="url(#crystalGrad)" stroke="#0B1436" stroke-width="5" opacity="0.92"/>
+        <path d="M0,-436 L-30,-352 L-20,-270 L0,-270 Z" fill="#FFFFFF" opacity="0.3" stroke="none"/>
+        <path d="M0,-436 L0,-270" stroke="#EAFEFF" stroke-width="4" fill="none" opacity="0.7"/>
+      </g>
+
+      <path id="glove-left" d="M-34,-60
+        C-34,-86 -16,-102 10,-102
+        C36,-102 54,-86 54,-60
+        C54,-34 36,-18 10,-18
+        C-16,-18 -34,-34 -34,-60 Z"
+        fill="#0B1436"/>
+      <path d="M-22,-78 C-2,-88 28,-88 44,-78" stroke="#35E6FF" stroke-width="5" fill="none"/>
+      <path d="M-24,-50 C-4,-40 26,-40 44,-50" stroke="#1B3F9E" stroke-width="5" fill="none"/>
+    </g>
+
+    <!-- ==== SWING ARCS ==== -->
+    <g id="swing-arcs" fill="none" stroke="#35E6FF" stroke-linecap="round" opacity="0.7">
+      <path d="M236,206 C300,150 384,124 470,132" stroke-width="9" opacity="0.5"/>
+      <path d="M212,268 C276,198 372,162 468,168" stroke-width="6" opacity="0.35"/>
+      <path d="M262,150 C312,116 368,98 420,96" stroke-width="5" opacity="0.28"/>
+    </g>
+
+    <!-- ==== GROUND ==== -->
+    <ellipse id="ground-shadow" cx="500" cy="898" rx="250" ry="34" fill="#35E6FF" opacity="0.16" stroke="none"/>
+  </g>
+</svg>
