@@ -1,0 +1,98 @@
+name: Render SVGs
+
+# Runs only when the artwork itself changes. The export commit this job pushes
+# back only touches exports/*.png, which the path filter below ignores, and it
+# carries [skip ci] as a second guard - so the job cannot retrigger itself.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*.svg'
+      - '.github/workflows/render.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-svgs
+  cancel-in-progress: false
+
+env:
+  # Fill this in with your GitHub account email so the export commits are
+  # attributed to you. The noreply address from Settings > Emails works here
+  # if you would rather not publish a personal address.
+  EDWIN_EMAIL: EDWIN_EMAIL
+  RENDER_WIDTH: '2560'
+  RESVG_VERSION: '0.45.0'
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install renderer
+        # resvg is preferred - it produces cleaner output than librsvg on these
+        # files. If the release asset cannot be fetched, fall back to
+        # rsvg-convert rather than failing the whole run.
+        run: |
+          set -uo pipefail
+          ASSET="resvg-linux-x86_64.tar.gz"
+          URL="https://github.com/linebender/resvg/releases/download/v${RESVG_VERSION}/${ASSET}"
+
+          if curl -sSfL -o /tmp/resvg.tar.gz "${URL}" \
+            && tar -xzf /tmp/resvg.tar.gz -C /tmp \
+            && [ -f /tmp/resvg ]; then
+            sudo install -m 0755 /tmp/resvg /usr/local/bin/resvg
+            echo "RENDERER=resvg" >> "${GITHUB_ENV}"
+            resvg --version
+          else
+            echo "resvg unavailable, falling back to rsvg-convert"
+            sudo apt-get update
+            sudo apt-get install -y librsvg2-bin
+            echo "RENDERER=rsvg-convert" >> "${GITHUB_ENV}"
+            rsvg-convert --version
+          fi
+
+      - name: Render each SVG to high-resolution PNG
+        run: |
+          set -euo pipefail
+          mkdir -p exports
+          shopt -s nullglob
+
+          for svg in *.svg; do
+            png="exports/${svg%.svg}.png"
+            echo "==> ${svg} -> ${png} (${RENDER_WIDTH}px wide)"
+            if [ "${RENDERER}" = "resvg" ]; then
+              resvg --width "${RENDER_WIDTH}" "${svg}" "${png}"
+            else
+              rsvg-convert --width "${RENDER_WIDTH}" --keep-aspect-ratio \
+                --output "${png}" "${svg}"
+            fi
+          done
+
+          ls -lh exports/
+
+      - name: Commit exports back to main
+        run: |
+          set -euo pipefail
+
+          if [ -z "$(git status --porcelain exports)" ]; then
+            echo "No export changes to commit."
+            exit 0
+          fi
+
+          # Attributed solely to Edwin Lungatso: the author and committer are
+          # both set here, so nothing is credited to github-actions[bot], and
+          # no Co-authored-by trailer is added.
+          git config user.name  'Edwin Lungatso'
+          git config user.email "${EDWIN_EMAIL}"
+
+          git add exports
+          git commit -m 'chore: render SVG exports to PNG [skip ci]'
+          git push origin HEAD:main
